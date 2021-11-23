@@ -35,10 +35,13 @@ class _ShowMapState extends State<ShowMap> {
     print('### id ที่สุ่มได้ ==> $id');
     MarkerId markerId = MarkerId(id);
     Marker marker = Marker(
-      markerId: markerId,
-      position: LatLng(lat, long),
-      infoWindow: InfoWindow(title: 'จุดเกิดFault', snippet: 'รายละเอียด') //โชว์ point
-    );
+        markerId: markerId,
+        position: LatLng(lat, long),
+        infoWindow: InfoWindow(
+            title: 'จุดเกิดFault at Current ${currentModle!.current}',
+            snippet:
+                'รายละเอียด ที่ lat = ${currentModle!.lat} lng = ${currentModle!.long}') //โชว์ point
+        );
     if (markers.length != 0) {
       markers.clear();
     }
@@ -71,14 +74,14 @@ class _ShowMapState extends State<ShowMap> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text('แสดงแผ่นที่'),),
       body: SafeArea(
         child: lat == null
             ? CircularProgressIndicator()
             : GoogleMap(
                 initialCameraPosition: CameraPosition(
                   target: LatLng(currentModle!.lat, currentModle!.long),
-                  zoom: 16,  //zoomแผนที่ focus
+                  zoom: 16, //zoomแผนที่ focus
                 ),
                 onMapCreated: (controller) {},
                 myLocationEnabled: true,

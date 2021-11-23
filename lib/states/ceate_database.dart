@@ -12,6 +12,9 @@ class CreateDatabase extends StatefulWidget {
 }
 
 class _CreateDatabaseState extends State<CreateDatabase> {
+  List<String> strings = [];
+  List<List<String>> listStrings = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +29,7 @@ class _CreateDatabaseState extends State<CreateDatabase> {
   }
 
   Future<Null> processInsertDatabase() async {
-    String xlsxAsset = 'assets/test.xlsx';
+    String xlsxAsset = 'assets/test1.xlsx';
     ByteData data = await rootBundle.load(xlsxAsset);
     var bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     var excel = Excel.decodeBytes(bytes);
@@ -34,16 +37,21 @@ class _CreateDatabaseState extends State<CreateDatabase> {
     for (var item in excel.tables.keys) {
       nameSheets.add(item);
     }
-
+    int times = 0;
     // print('### namesheet ==>> $nameSheets');
     for (var item in excel.tables[nameSheets[1]]!.rows) {
       // print('### row ==>> $item');
       List<Data?> datas = item;
       // print('### datas ==>> $datas');
 
-      for (var item2 in datas) {
-        print('### data ==> $item2');
+      if (times>0) {
+        for (var item2 in datas) {
+          // print('### nameSheet ==> ${item2!.sheetName}');
+          print('### ข้อมูลใช้ได้ ==>> ${item2!.value}');
+         
+        }
       }
+      times++;
     }
   }
 }

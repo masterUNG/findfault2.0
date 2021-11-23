@@ -1,76 +1,99 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class XDintor2 extends StatelessWidget {
-  XDintor2({
-    Key? key,
-  }) : super(key: key);
+class XDintor2 extends StatefulWidget {
+  const XDintor2({Key? key}) : super(key: key);
+
+  @override
+  _XDintor2State createState() => _XDintor2State();
+}
+
+class _XDintor2State extends State<XDintor2> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    countTime();
+  }
+
+  Future<void> countTime() async {
+    print('### countTime work');
+    Duration duration = Duration(seconds: 3);
+    await Timer(duration, () {
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/requireData', (route) => false);
+    });
+  }
+
+  // void countTime(){}
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pushNamedAndRemoveUntil(
           context, '/requireData', (route) => false),
-      child:
-    Scaffold(
-      backgroundColor: const Color(0xffffffff),
-      body: Stack(
-        children: <Widget>[
-          Pinned.fromPins(
-            Pin(start: 0.0, end: 0.0),
-            Pin(start: 0.0, end: 0.0),
-            child: Stack(
-              children: <Widget>[
-                Pinned.fromPins(
-                  Pin(start: 0.0, end: 0.0),
-                  Pin(start: 0.0, end: 0.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment(1.0, -0.97),
-                        end: Alignment(-1.0, 1.0),
-                        colors: [
-                          const Color(0xff00ffe5),
-                          const Color(0xff450080)
-                        ],
-                        stops: [0.0, 1.0],
+      child: Scaffold(
+        backgroundColor: const Color(0xffffffff),
+        body: Stack(
+          children: <Widget>[
+            Pinned.fromPins(
+              Pin(start: 0.0, end: 0.0),
+              Pin(start: 0.0, end: 0.0),
+              child: Stack(
+                children: <Widget>[
+                  Pinned.fromPins(
+                    Pin(start: 0.0, end: 0.0),
+                    Pin(start: 0.0, end: 0.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment(1.0, -0.97),
+                          end: Alignment(-1.0, 1.0),
+                          colors: [
+                            const Color(0xff00ffe5),
+                            const Color(0xff450080)
+                          ],
+                          stops: [0.0, 1.0],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 91.9, middle: 0.7139),
-            Pin(size: 5.8, middle: 0.4618),
-            child: SvgPicture.string(
-              _svg_gee,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
+            Pinned.fromPins(
+              Pin(size: 91.9, middle: 0.7139),
+              Pin(size: 5.8, middle: 0.4618),
+              child: SvgPicture.string(
+                _svg_gee,
+                allowDrawingOutsideViewBox: true,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 185.6, middle: 0.5959),
-            Pin(size: 47.0, middle: 0.4175),
-            child: SvgPicture.string(
-              _svg_wqlrp3,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
+            Pinned.fromPins(
+              Pin(size: 185.6, middle: 0.5959),
+              Pin(size: 47.0, middle: 0.4175),
+              child: SvgPicture.string(
+                _svg_wqlrp3,
+                allowDrawingOutsideViewBox: true,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-          Pinned.fromPins(
-            Pin(size: 55.1, middle: 0.1842),
-            Pin(size: 22.4, middle: 0.3716),
-            child: SvgPicture.string(
-              _svg_kw393t,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
+            Pinned.fromPins(
+              Pin(size: 55.1, middle: 0.1842),
+              Pin(size: 22.4, middle: 0.3716),
+              child: SvgPicture.string(
+                _svg_kw393t,
+                allowDrawingOutsideViewBox: true,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ),
     );
   }
 }

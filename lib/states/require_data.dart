@@ -41,7 +41,7 @@ class _ReqireDataState extends State<ReqireData> {
           .listen((event) {
         for (var item in event.docs) {
           String nameBreaker = item.id;
-          print('## nameBreaker = $nameBreaker');
+          // print('## nameBreaker = $nameBreaker');
           setState(() {
             loadBreaker = false;
             breakers.add(nameBreaker);
@@ -128,8 +128,30 @@ class _ReqireDataState extends State<ReqireData> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Dropdownbreaker(),
-                        DropdownType(),
+                        Container(
+                          width: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade600),
+                            borderRadius: BorderRadius.circular(4),
+                            color: Colors.grey.shade300,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Dropdownbreaker(),
+                          ),
+                        ),
+                        Container(margin: EdgeInsets.symmetric(vertical: 8),
+                          width: 250,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey.shade600),
+                            borderRadius: BorderRadius.circular(4),
+                            color: Colors.grey.shade300,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: DropdownType(),
+                          ),
+                        ),
                         BuildCurrent(),
                         Buildcaculate()
                       ],
@@ -161,7 +183,7 @@ class _ReqireDataState extends State<ReqireData> {
     );
   }
 
-  Future<Null> processCalculate() async {
+  Future<void> processCalculate() async {
     print(
         '### breakerchoose = $brekerChoosed, typebreker =$typeBreaker, currentmax = $currentMaxStr');
 
@@ -177,6 +199,7 @@ class _ReqireDataState extends State<ReqireData> {
         bool first = true;
 
         for (var item in value.docs) {
+          
           CurrentModel model = CurrentModel.fromMap(item.data());
           int test = int.parse(currentMaxStr!) - model.current;
           test = test.abs();

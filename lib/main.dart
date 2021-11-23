@@ -1,4 +1,3 @@
-
 import 'package:findfault/XDGooglePixel51.dart';
 import 'package:findfault/XD_intro.dart';
 import 'package:findfault/XDintor2.dart';
@@ -13,18 +12,17 @@ import 'package:adobe_xd/pinned.dart';
 final Map<String, WidgetBuilder> map = {
   // '/authen': (BuildContext context) => Authen(),
   '/requireData': (BuildContext context) => ReqireData(),
-  // '/createdatabase': (BuildContext context) => CreateDatabase(),
+  '/createdatabase': (BuildContext context) => CreateDatabase(),
   '/intro': (BuildContext context) => XDintor2(),
   '/intro2': (BuildContext context) => XDGooglePixel51(),
   '/intro3': (BuildContext context) => XDintor22(),
-  
-
 };
 
 String? firstState;
 
 void main() {
-  firstState = '/intro';
+  // firstState = '/intro';
+  firstState = '/createdatabase';
   runApp(MyApp());
 }
 

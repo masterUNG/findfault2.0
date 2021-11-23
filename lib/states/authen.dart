@@ -11,6 +11,9 @@ class Authen extends StatefulWidget {
 class _AuthenState extends State<Authen> {
   String? user;
   String? password;
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
