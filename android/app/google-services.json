@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702505949292",
+    "project_id": "findfaultpro",
+    "storage_bucket": "findfaultpro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702505949292:android:0199bf98062045f68e6049",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.findfault"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702505949292-f35tn5a3cmt0j8160kl5u3dimfeafls0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBauIg5Mez-v3tRiFC0vS1yRhVc1KRM_cY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702505949292-f35tn5a3cmt0j8160kl5u3dimfeafls0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
