@@ -21,8 +21,8 @@ final Map<String, WidgetBuilder> map = {
 String? firstState;
 
 void main() {
-  // firstState = '/intro';
-  firstState = '/createdatabase';
+  firstState = '/intro';
+  // firstState = '/createdatabase';
   runApp(MyApp());
 }
 

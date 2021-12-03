@@ -201,7 +201,7 @@ class _ReqireDataState extends State<ReqireData> {
         for (var item in value.docs) {
           
           CurrentModel model = CurrentModel.fromMap(item.data());
-          int test = int.parse(currentMaxStr!) - model.current;
+          int test = (int.parse(currentMaxStr!) - model.current).toInt();
           test = test.abs();
           print(' ### test => $test');
           if (first) {
